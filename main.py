@@ -8,24 +8,47 @@ def take_word():
     
 
 def user_input():
-    try:
-        while True:
-            inputa = str(input("type >> ")).upper()
-            return inputa
-    except ValueError:
-        print("oi - wot are you typ'ing")
+    while True:
+        try:
+            inputa = input("type >> ")
+            return inputa.upper()
+        except ValueError:
+            print("oi - wot are you typ'ing")
     
 
-def compair(word, inputa):
-    for leatter in word:
-        for i in inputa:
-            if leatter in i:
-                print(word, leatter)
-                
+class Compair:
+    def position(word, inputa):
+        #print("  ----  ", inputa, word)
+        resultado = "| "
+        for index in range(5):
+            if word[index] == inputa[index]:
+                resultado = resultado + f"\033[92m{inputa[index]}\033[0m | "
+            else:
+                resultado = resultado + f"{inputa[index]} | "
+        return resultado
+
+    def letter(word, inputa):
+        list_letter = []
+        resultado = "| "
+        for leatter in word:
+            for i in inputa:
+                if leatter in i:
+                    list_letter.append(leatter)
+        for letra in inputa:
+            if letra in list_letter:
+                resultado = resultado + f"\033[93m{letra}\033[0m | "
+            else:
+                resultado = resultado + f"{letra} | "
+        return resultado
+                    
         
 
 def main():
     word = take_word()
     inputa = user_input()
-    compair(word, inputa)
+    certo = Compair.position(word, inputa)
+    meio = Compair.letter(word, inputa)
+    print(certo)
+    print(meio)
+    #compair(word, inputa)
 main()
