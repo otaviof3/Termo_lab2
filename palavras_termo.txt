@@ -2,6 +2,7 @@ sagaz
 amago
 negro
 termo
+vasco
 exito
 mexer
 nobre
