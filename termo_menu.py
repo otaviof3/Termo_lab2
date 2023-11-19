@@ -1,12 +1,7 @@
-import os
 
-def clear_screen():
-    # Try to clear the screen for various operating systems
-    os.system('cls' if os.name == 'nt' else 'clear')
 
 def choose_game_mode():
-    # Clear the terminal screen
-    clear_screen()
+  
 
     print('TERMO\n')
     print('ESCOLHA O TIPO DE JOGO:')
@@ -16,8 +11,19 @@ def choose_game_mode():
     
     while True:
         try:
-            user_choice = int(input('Choose the gamemode: '))
-            return user_choice
+            user_choise = int(input('Choose the gamemode: '))
+            print('//type any other number to exit//')
+            return user_choise
         except ValueError:
             print('Please, type a valid option!')
 
+def menu(user_choise):
+    while True:
+        if user_choise == 1:
+            print('a')
+        elif user_choise == 2:
+            pass
+        elif user_choise == 3:
+            pass
+        else:
+            break
